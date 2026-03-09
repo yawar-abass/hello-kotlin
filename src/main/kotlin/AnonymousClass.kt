@@ -16,10 +16,14 @@ class AnonymousClass {
 
             override fun meow() {
                 println("moew moew moew")
+
             }
+
+
+
         }
 
-        yo.meow()
+//        yo.meow()
     }
 
 }

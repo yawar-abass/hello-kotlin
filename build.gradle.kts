@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "2.1.0"
 }
 
 group = "org.example"
@@ -11,6 +11,10 @@ repositories {
 
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    // For Android projects, you may also want the Android-specific extensions
+     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
 }
 
 tasks.test {

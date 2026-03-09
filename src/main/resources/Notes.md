@@ -422,3 +422,22 @@ insert(data)
 close()
 }
 ```
+## Coroutines & Async Programming
+
+### Core Concepts
+- **Coroutines:** Lightweight threads. They pause (`suspend`) instead of blocking the underlying OS thread, allowing massive concurrency with low memory usage.
+- **`suspend`:** A keyword telling the compiler the function can be paused and resumed later.
+
+### Builders
+- **`launch { }`:** Fire-and-forget. Starts a coroutine and returns a `Job` (no result data).
+- **`async { }`:** Starts a coroutine and returns a `Deferred<T>` (like a Promise). Use `.await()` to extract the result. Perfect for running tasks in parallel.
+
+### Dispatchers (Thread Pools)
+- **`IO`:** For Network/Database waiting.
+- **`Default`:** For heavy CPU math.
+- **`Main`:** For UI updates.
+- **`withContext()`:** Used inside a coroutine to safely jump to a different thread pool.
+
+### Structured Concurrency
+- Coroutines are strictly bound to a `CoroutineScope`.
+- If a scope is destroyed, all child coroutines inside it are safely cancelled, preventing orphaned tasks and memory leaks.
